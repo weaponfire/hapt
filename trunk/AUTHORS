@@ -1,0 +1,51 @@
+*************************************************************************
+**                                                                     **
+**            HAPT - Hardware-Assisted Projected Tetrahedra            **
+**                                                                     **
+**                             AUTHORS File                            **
+**                                                                     **
+*************************************************************************
+
+    HAPT is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    HAPT is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see
+    <http://www.gnu.org/licenses/>.
+
+Credits:
+
+    HAPT Main Code:
+        Maximo, Andre (andmax@gmail.com)
+        Marroquim, Ricardo (ricardo.marroquim@gmail.com)
+
+    Contributors:
+        Esperanca, Claudio (claudio.esperanca@gmail.com)
+        Farias, Ricardo (rfarias@gmail.com)
+
+    Publication History:
+
+        Hardware-Assisted Projected Tetrahedra
+        A. Maximo ; R. Marroquim ; R. Farias
+        Computer Graphics Forum 2010 (to appear).
+
+        Volume and Isosurface Rendering with GPU-Accelerated Cell Projection
+        R. Marroquim ; A. Maximo ; R. Farias ; C. Esperanca.
+        Computer Graphics Forum 2008.
+
+        GPU-Based Cell Projection for Large Structured Data Sets
+        A. Maximo ; R. Marroquim ; R. Farias ; C. Esperanca.
+        International Conference on Computer Graphics Theory and Applications.
+        GRAPP 2007, Barcelona, Spain.
+
+        GPU-Based Cell Projection for Interactive Volume Rendering
+        R. Marroquim ; A. Maximo ; R. Farias ; C. Esperanca.
+        Brazilian Symposium on Computer Graphics and Image Processing.
+        SIBGRAPI 2006, Manaus, AM, Brazil. IEEE Publication.

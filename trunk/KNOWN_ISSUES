@@ -1,0 +1,48 @@
+*************************************************************************
+**                                                                     **
+**            HAPT - Hardware-Assisted Projected Tetrahedra            **
+**                                                                     **
+**                        KNOWN ISSUES File                            **
+**                                                                     **
+*************************************************************************
+
+    HAPT is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    HAPT is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see
+    <http://www.gnu.org/licenses/>.
+
+Issues:
+
+    HAPT is a research project under development, presenting several
+    known problems.  The time-varying concept integrate with HAPT is
+    in a separate subdirectory: tvvd/ (standing for time-varying
+    volume data).  In this directory you can find source codes to
+    compile and run hapt specialized to tvvd, which is a very close
+    version to the main code HAPT.  The run command is also very
+    similar, for example:
+
+    $ ./hapt turbjet
+
+    will search for: ../tvvd/turbjet.tvvd.  Additionally, source codes
+    to convert binary files p_* to the off format (under construction)
+    and tvvd format (a simple time-varying format) is given.  HAPT was
+    tested using the turbulent jet dataset divided in 150 binary files
+    from p_01 to p_150, provided by Prof. Dr. Kwan-Liu Ma.  These
+    files were converted to our tvvd internal format to simplify
+    usage.
+
+    Another issue of HAPT is the new nVidia GPUs starting from the
+    GeForce 200 series.  For some unknown reason, these newest
+    graphics cards are slower than the previous GeForce 8 and 9
+    series.  The problem seems to be reading textures inside the
+    geometry shader, which now greatly impact the performance.  We
+    didn't test HAPT with better nVidia GPUs, such as Quadro or Tesla.
