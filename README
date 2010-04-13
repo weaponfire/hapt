@@ -1,0 +1,120 @@
+*************************************************************************
+**                                                                     **
+**            HAPT - Hardware-Assisted Projected Tetrahedra            **
+**                                                                     **
+**                              README File                            **
+**                                                                     **
+*************************************************************************
+
+    HAPT is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    HAPT is distributed in the hope that it will be useful, but
+    WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+    General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see
+    <http://www.gnu.org/licenses/>.
+
+Abstract:
+
+We present a flexible and highly efficient hardware-assisted volume
+renderer grounded on the original Projected Tetrahedra (PT) algorithm.
+Unlike recent similar approaches, our method is exclusively based on
+the rasterization of simple geometric primitives and takes full
+advantage of graphics hardware.  Both vertex and geometry shaders are
+used to compute the tetrahedral projection, while the volume ray
+integral is evaluated in a fragment shader; hence, volume rendering is
+performed entirely on the GPU within a single pass through the
+pipeline.  We apply a CUDA-based visibility ordering achieving
+rendering and sorting performance of over 6 M Tet/s for unstructured
+datasets.  Furthermore, as each tetrahedron is processed
+independently, we employ a data-parallel solution which is neither
+bound by GPU memory size nor does it rely on auxiliary volume
+information.  In addition, iso-surfaces can be readily extracted
+during the rendering process, and time-varying data are handled
+without extra burden.
+
+Instalation:
+
+    HAPT code was written and tested on Linux platform using OpenGL
+    Easy Extension (GLee) for extension functions, OpenGL Utility
+    Toolkit (GLUT) for interface functions, Compute Unified Device
+    Architecture (CUDA) Utilities from nVidia for CUDA binding and LCG
+    Toolkit from LCG/COPPE/UFRJ.  To download and/or see more
+    information about above dependencies see:
+
+    GLee: http://www.opengl.org/sdk/libs/GLee
+    GLUT: http://www.opengl.org/resources/libraries/glut
+    CUDA: http://www.nvidia.com/object/cuda_get.html
+    LCG-Toolkit: http://code.google.com/p/lcgtk
+
+    In order to proper compile the HAPT code, the GLee and GLUT should
+    be on a default include directory: GL; and the LCG Toolkit should
+    be in HOME/lcgtk.  The GLee library in a default library
+    directory.  Additionally CUDA compile wrapper (nvcc) and libraries
+    (cuda, cudart and cutil) should have been installed by CUDA SDK
+    from nVidia.  The Makefile can be optionally edited to reflect
+    specific configurations.
+
+Usage:
+
+    HAPT program is designed to run using a GPU that supports Shaders
+    and nVidia CUDA language.  It has been tested on a GeForce 8800
+    series.
+
+    Command line: ./hapt 'volume'
+
+    HAPT program search by default a parent directory with volume
+    informations named: tet_offs/.  For example, run it by calling:
+
+    $ ./hapt spx2
+
+    and it will search for: tet_offs/spx2.off.  Additionally, files
+    named spx2.tf and spx2.lmt will also be opened in the same
+    directory.  If they don't exist, they will be computed and
+    created.  The only required file is the volume itself:
+    tet_offs/'volume'.off.
+
+    HAPT runtime commands are:
+
+	(h|?)            --    show/hide help
+	(left-button)    --    rotate volume
+	(wheel-button)   --    zoom volume
+	(right-button)   --    open menu
+	(b)              --    change background between white and black
+	(o)              --    turn on/off buffer object usage
+	(r)              --    always rotating mode
+	(s)              --    show/hide timing information
+	(t)              --    open transfer function window
+	(d)              --    draw volume on/off
+	(0)              --    no sort
+	(1)              --    use stl sort
+	(2)              --    use gpu bitonic sort
+	(3)              --    use gpu quick sort
+	(q|esc)          --    close application
+
+    Transfer Function editing runtime commands are:
+
+        (h|?)            --    show/hide help
+        (left-button)    --    select/move control point
+        (middle-button)  --    create control point
+        (right-button)   --    open menu
+        (0-9)            --    select color code
+        (r)              --    read TF file
+        (w)              --    write TF file
+        (s)              --    show/hide TF chart
+        (x)              --    delete (current selected) control point
+        (q|t|esc)        --    close TF window
+
+File Formats:
+
+    .off   -   Model file ( vertex position and tetrahedra ids )
+    .tf    -   Transfer Function file
+    .lmt   -   limits file ( maxEdgeLength, maxZ and minZ values )
+    .con   -   cell connectivity file
+
