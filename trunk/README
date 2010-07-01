@@ -44,22 +44,24 @@ Instalation:
     HAPT code was written and tested on Linux platform using OpenGL
     Easy Extension (GLee) for extension functions, OpenGL Utility
     Toolkit (GLUT) for interface functions, Compute Unified Device
-    Architecture (CUDA) Utilities from nVidia for CUDA binding and LCG
-    Toolkit from LCG/COPPE/UFRJ.  To download and/or see more
+    Architecture (CUDA) Utilities from nVidia for CUDA binding, LCG
+    Toolkit from LCG/COPPE/UFRJ and VCG Library from Visual Computing
+    Lab of ISTI (VCG-Lib).  To download and/or see more
     information about above dependencies see:
 
     GLee: http://www.opengl.org/sdk/libs/GLee
     GLUT: http://www.opengl.org/resources/libraries/glut
     CUDA: http://www.nvidia.com/object/cuda_get.html
     LCG-Toolkit: http://code.google.com/p/lcgtk
+    VCG-Lib: http://vcg.sourceforge.net/
 
     In order to proper compile the HAPT code, the GLee and GLUT should
-    be on a default include directory: GL; and the LCG Toolkit should
-    be in HOME/lcgtk.  The GLee library in a default library
-    directory.  Additionally CUDA compile wrapper (nvcc) and libraries
-    (cuda, cudart and cutil) should have been installed by CUDA SDK
-    from nVidia.  The Makefile can be optionally edited to reflect
-    specific configurations.
+    be on a default include directory: GL; the LCG Toolkit should
+    be in HOME/lcgtk; and the VCG Library should be in HOME/vcglib.
+    The GLee library in a default library directory.  Additionally
+    CUDA compile wrapper (nvcc) and libraries (cuda, cudart and cutil)
+    should have been installed by CUDA SDK from nVidia.  The Makefile
+    can be optionally edited to reflect specific configurations.
 
 Usage:
 
