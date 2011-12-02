@@ -133,9 +133,9 @@ void initBitonic( uint numElements ) {
 
 	szPackedArrayBitonic = pofElements * sizeof(uint_64);
 
-	if( cudaMalloc((void**) &d_packedArrayBitonic, szPackedArrayBitonic) != cudaSuccess ) { printf("!error! Allocating memory for bitonic array!\n"); return; }
+	if( cudaMalloc( (void**) &d_packedArrayBitonic, szPackedArrayBitonic) != cudaSuccess ) { printf("!error! Allocating memory for bitonic array!\n"); return; }
 
-	if( cudaMemset((void**) &d_packedArrayBitonic, 0xFF, szPackedArrayBitonic) != cudaSuccess ) { printf("!error! Setting memory in bitonic array!\n"); return; }
+	if( cudaMemset( (void*) d_packedArrayBitonic, 0xFF, szPackedArrayBitonic) != cudaSuccess ) { printf("!error! Setting memory in bitonic array!\n"); return; }
 
 }
 

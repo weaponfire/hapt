@@ -63,6 +63,12 @@ Instalation:
     should have been installed by CUDA SDK from nVidia.  The Makefile
     can be optionally edited to reflect specific configurations.
 
+Windows:
+
+    There are two files to compile under MicrosoftTM Visual StudioTM:
+    hapt.sln and hapt.vcproj.  They have been added but no tested to
+    the project root.  Courtesy of Movania Muhammad Mobeen.
+
 Usage:
 
     HAPT program is designed to run using a GPU that supports Shaders
