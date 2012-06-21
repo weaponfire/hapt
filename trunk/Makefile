@@ -2,12 +2,6 @@
 # Makefile for HAPT
 #
 
-#SHELL=/bin/csh
-
-CXX = g++
-#CXX = icpc
-CUX = nvcc
-
 VCGDIR = $(HOME)/vcglib
 VCGGUI = $(VCGDIR)/wrap/gui
 
@@ -18,7 +12,10 @@ EDIR = $(LDIR)/errHandle
 KDIR = $(LDIR)/glslKernel
 
 CUDA_HOME =	/usr/local/cuda
-CUDA_SDK =	$(CUDA_HOME)/SDK
+CUDA_SDK = $(CUDA_HOME)/NVIDIA_GPU_Computing_SDK
+
+CXX = c++
+CUX = $(CUDA_HOME)/bin/nvcc
 
 CUH =	cudah
 
@@ -43,22 +40,19 @@ SRCS =	$(SRC)/hapt.cc $(SRC)/haptVol.cc $(SRC)/appVol.cc \
 
 APP = hapt
 
-DEBUG_FLAGS = #-g
 OPT_FLAGS = -O3 -ffast-math
-ICPC_FLAGS = -D_GLIBCXX_GTHREAD_USE_WEAK=0 -pthread
 
-CXX_FLAGS = -Wall -Wno-deprecated $(DEBUG_FLAGS) $(INCLUDES) $(OPT_FLAGS) $(ICPC_FLAGS)
+CXX_FLAGS = -Wall -Wno-deprecated $(INCLUDES) $(OPT_FLAGS)
 
-NVCC_FLAGS =	-O3 --compiler-options='-fPIC' \
-		--compiler-bindir=/usr/bin/gcc-4.3 \
-		-I$(CUDA_HOME)/include \
-		-I$(CUDA_SDK)/C/common/inc \
-		-I$(CUH)
+NVCC_FLAGS = -m64 -Xcompiler ,\"-g\" -gencode arch=compute_20,code=sm_20 --ptxas-options=-v \
+	-ftz=true -prec-div=false -prec-sqrt=false -DNVCC \
+	-I$(CUDA_HOME)/include \
+	-I$(CUDA_SDK)/C/common/inc \
+	-I$(CUH)
 
-LNK_FLAGS = -fPIC $(OPT_FLAGS) $(ICPC_FLAGS)
+LNK_FLAGS = -fPIC $(OPT_FLAGS)
 
-LIBS =	-lGLee -lglut -lGL -lglslKernel \
-	-lcuda -lcudart -lcutil
+LIBS =	-lGLee -lglut -lGL -lGLU -lglslKernel -lcudart
 
 #-----------------------------------------------------------------------------
 
@@ -72,7 +66,7 @@ depend:
 
 $(OBJ)/%.cu_o: $(CU)/%.cu
 	@echo "CUDA compiling ..."
-	$(CUX) $(NVCC_FLAGS)  -c $< -o $@
+	$(CUX) $< -c -o $@ $(NVCC_FLAGS)
 
 $(OBJ)/%.o: $(SRC)/%.cc
 	@echo "Compiling ..."

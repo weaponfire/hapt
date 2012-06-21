@@ -32,7 +32,7 @@ using std::flush;
 
 static const char titleWin[] = "HAPT"; ///< Window title
 
-static int winWidth = 512, winHeight = 512; ///< Window size
+static int winWidth = 1280, winHeight = 1280; ///< Window size
 
 int ptWinId; ///< PT Window id
 

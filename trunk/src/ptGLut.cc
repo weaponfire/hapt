@@ -33,7 +33,7 @@ using std::flush;
 
 static const char titleWin[] = "HAPT"; ///< Window title
 
-static int winWidth = 512, winHeight = 512; ///< Window size
+static int winWidth = 1280, winHeight = 1280; ///< Window size
 
 int ptWinId; ///< PT Window id
 
@@ -51,7 +51,7 @@ static sortType currSort = gpu_quick; ///< Current sorting method
 
 static drawType currDraw = dvr; ///< Current rendering method
 
-static bool alwaysRotating = true; ///< Always rotating state
+static bool alwaysRotating = false; ///< Always rotating state
 static int arX, arY; ///< Always rotating trackball X and Y
 
 static bool whiteBG = true; ///< Back ground color
@@ -131,7 +131,7 @@ void glPTShowInfo(void) {
 
 		sprintf(str, "Render method: %s",
 				(currDraw == dvr) ? "DVR" :
-				( (currDraw == isos) ? "Iso-surfacse" : "DVR + Iso-surfaces" ) );
+				( (currDraw == isos) ? "Iso-surfaces" : "DVR + Iso-surfaces" ) );
 		glWrite(-1.1, -1.0, str);
 
 		if (!showHelp)
@@ -142,22 +142,25 @@ void glPTShowInfo(void) {
 	if (showHelp) { /// Show help information
 
 		glWrite( 0.82,  1.1, "(?) close help");
-		glWrite(-0.52,  0.8, "(left-button) rotate volume");
-		glWrite(-0.52,  0.7, "(wheel-button) zoom volume");
-		glWrite(-0.52,  0.6, "(right-button) rotate light");
-		glWrite(-0.52,  0.5, "(b) change background W/B");
-		glWrite(-0.52,  0.4, "(o) turn on/off buffer object usage");
-		glWrite(-0.52,  0.3, "(r) always rotating mode");
-		glWrite(-0.52,  0.2, "(s) show/hide timing information");
-		glWrite(-0.52,  0.1, "(t) open transfer function window");
-		glWrite(-0.52,  0.0, "(i) open iso-surfaces window");
-		glWrite(-0.52, -0.1, "(d) draw volume on/off");
-		glWrite(-0.52, -0.2, "(0) no sort");
-		glWrite(-0.52, -0.3, "(1) use stl sort");
-		glWrite(-0.52, -0.4, "(2) use gpu bitonic sort");
-		glWrite(-0.52, -0.5, "(3) use gpu quick sort");
-		glWrite(-0.52, -0.6, "(4) use MPVO sort");
-		glWrite(-0.52, -0.7, "(q|esc) close application");
+		glWrite(-0.52,  0.9, "(left-button) rotate volume");
+		glWrite(-0.52,  0.8, "(wheel-button) zoom volume");
+		glWrite(-0.52,  0.7, "(right-button) rotate light");
+		glWrite(-0.52,  0.6, "(b) change background W/B");
+		glWrite(-0.52,  0.5, "(o) turn on/off buffer object usage");
+		glWrite(-0.52,  0.4, "(r) always rotating mode");
+		glWrite(-0.52,  0.3, "(s) show/hide timing information");
+		glWrite(-0.52,  0.2, "(t) open transfer function window");
+		glWrite(-0.52,  0.1, "(i) open iso-surfaces window");
+		glWrite(-0.52,  0.0, "(d) draw volume on/off");
+		glWrite(-0.52, -0.1, "(0) no sort");
+		glWrite(-0.52, -0.2, "(1) use stl sort");
+		glWrite(-0.52, -0.3, "(2) use gpu bitonic sort");
+		glWrite(-0.52, -0.4, "(3) use gpu quick sort");
+		glWrite(-0.52, -0.5, "(4) use MPVO sort");
+		glWrite(-0.52, -0.6, "(7) draw DVR");
+		glWrite(-0.52, -0.7, "(8) draw ISO");
+		glWrite(-0.52, -0.8, "(9) draw DVR+ISO");
+		glWrite(-0.52, -0.9, "(q|esc) close application");
 
 	}
 
