@@ -89,7 +89,7 @@ void unpackArray( uint *unpackedArray,
 
 /// Initialize General
 
-extern "C"
+//extern "C"
 __host__
 void initCUDA( float *h_centroidList, uint _numCentroids ) {
 
@@ -115,7 +115,7 @@ void initCUDA( float *h_centroidList, uint _numCentroids ) {
 
 /// Run bitonic sort using CUDA
 
-extern "C"
+//extern "C"
 __host__
 void bitonicSortCUDA( uint *ids, float _mvX, float _mvY, float _mvZ ) {
 
@@ -135,7 +135,7 @@ void bitonicSortCUDA( uint *ids, float _mvX, float _mvY, float _mvZ ) {
 
 /// Run quick sort using CUDA
 
-extern "C"
+//extern "C"
 __host__
 void quickSortCUDA( uint *ids, float _mvX, float _mvY, float _mvZ ) {
 
@@ -165,7 +165,7 @@ void quickSortCUDA( uint *ids, float _mvX, float _mvY, float _mvZ ) {
 
 /// Clean CUDA memory
 
-extern "C"
+//extern "C"
 __host__
 void cleanCUDA( void ) {
 

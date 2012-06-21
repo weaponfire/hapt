@@ -5,7 +5,6 @@
 #SHELL=/bin/csh
 
 CXX = g++
-#CXX = icpc
 
 VCGDIR = $(HOME)/vcglib
 VCGGUI = $(VCGDIR)/wrap/gui
@@ -28,15 +27,13 @@ SRCS = appVol.cc glslKernel.cc ptGLut.cc tfGLut.cc haptVol.cc hapt.cc \
 
 APP = hapt
 
-DEBUG_FLAGS = #-g
 OPT_FLAGS = -O3 -ffast-math
-ICPC_FLAGS = -D_GLIBCXX_GTHREAD_USE_WEAK=0 -pthread
 
-CXX_FLAGS = -Wall -Wno-deprecated $(DEBUG_FLAGS) $(INCLUDES) $(OPT_FLAGS) $(ICPC_FLAGS)
+CXX_FLAGS = -Wall -Wno-deprecated $(INCLUDES) $(OPT_FLAGS)
 
-LNK_FLAGS = -fPIC $(OPT_FLAGS) $(ICPC_FLAGS)
+LNK_FLAGS = -fPIC $(OPT_FLAGS)
 
-LIBS =	-lGLee -lglut -lGL -lglslKernel
+LIBS =	-lGLee -lglut -lGL -lGLU -lglslKernel
 
 #-----------------------------------------------------------------------------
 
