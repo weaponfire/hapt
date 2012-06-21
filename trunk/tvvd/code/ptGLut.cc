@@ -32,7 +32,7 @@ using std::flush;
 
 static const char titleWin[] = "HAPT"; ///< Window title
 
-static int winWidth = 1280, winHeight = 1280; ///< Window size
+static int winWidth = 1536, winHeight = 1536; ///< Window size
 
 int ptWinId; ///< PT Window id
 
@@ -60,7 +60,7 @@ static GLdouble drawTime = 0.0, sortTime = 0.0,
 	totalTime = 0.0; ///< Time spent in drawing
 
 static bool showHelp = false; ///< show help flag
-static bool showInfo = false; ///< show information flag
+static bool showInfo = true; ///< show information flag
 
 /// ----------------------------------   Functions   -------------------------------------
 
